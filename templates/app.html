@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+
+    <title>Todo App</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+</head>
+<body>
+    <div class="container ">
+      <div class="col-md-6  offset-md-4">
+        <form action="/addTodo/" method="POST" class="pd-20 col-md-6" >{% csrf_token %}
+            <div class="form-row align-items-center">
+              <div class="col-auto">
+                <h3 style="font-weight: 918;color: #337ab7;    line-height: 2.1;" >  Todo App</h3>
+               
+                <div class="input-group mb-3">
+                  <input type="text" name="content" class="form-control" placeholder="Type your Todo..."/>
+                 
+                </div>
+             </div>
+        </div>
+
+        <div class="form-row align-items-center"> 
+          <ul class="list-group-flush">
+            {% for item in all_items %}
+              <li class="list-group-item">{{item.content}}
+                
+              <a class="glyphicon glyphicon-trash" href="/deleteTodo/{{item.id}}/"></a>
+  
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+
+        <div>
+          <h6>Created by Thushar Prasanth</h6>
+          <div style="display: flex;padding-left: 25px;font-size: 30px;width: 50px;">
+          
+          <a style="padding-right: 13px;" href="https://www.facebook.com/thusharprasanth1/" class="fa fa-facebook"></a>
+          <a style="padding-right: 13px;" href="https://github.com/Thusharprasanth" class="fa fa-github"></a>
+          <a href="https://www.linkedin.com/in/thushar-prasanth-25582b1a9/" class="fa fa-linkedin"></a>
+        </div>
+        </div>
+
+      </form>
+
+ 
+
+    </div>
+
+  
+
+    </div>
+  
+ 
+</body>
+</html>
